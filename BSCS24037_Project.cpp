@@ -55,10 +55,38 @@ int main() {
 
 
         for (int i = 0; i < MAX_BUILDINGS; i++) {
+
             if (player.x_pos() == buildings[i].x_pos() && player.y_pos() == buildings[i].y_pos()) {
                 player.addShield(buildings[i].getShield());
                 cout << "Player gained shield!\n";
             }
         }
+
+
+        for (int i = 0; i < MAX_ENEMIES; i++) {
+
+            Enemy* e = e_arr[i];
+
+            if (e->isAlive()) {
+
+                e->moveToward(player.x_pos(), player.y_pos(), buildings, MAX_BUILDINGS, heals, MAX_HEALS);
+
+                if (e->inRange(player.x_pos(), player.y_pos())) {
+                    player.takeDamage(e->getDamage());
+                    cout << "Enemy " << i + 1 << " attacked player!\n";
+                }
+            }
+        }
+
+        player.attack(enemies, MAX_ENEMIES);
+
+        player.regenerate();
     }
+
+    cout << "You lost!\n";
+
+    for (int i = 0; i < MAX_ENEMIES; i++) {
+        delete e_arr[i];
+    }
+
 }
