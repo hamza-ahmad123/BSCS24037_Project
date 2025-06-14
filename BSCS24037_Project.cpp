@@ -1,21 +1,33 @@
-
-// BSCS24037_Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include "Player.h"
+#include "Enemy.h"
+#include "Building.h"
+#include "HealingPoint.h"
+#include "Grid.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+const int MAX_ENEMIES = 5;
+const int MAX_BUILDINGS = 2;
+const int MAX_HEALS = 2;
+
+int main() {
+    Player player(0, 0, 100);
+
+    Enemy* e_arr[MAX_ENEMIES];
+    e_arr[0] = new Enemy(2, 2, 50, 10);
+    e_arr[1] = new Enemy(4, 4, 50, 10);
+    e_arr[2] = new Enemy(6, 6, 50, 10);
+    e_arr[3] = new Enemy(8, 2, 50, 10);
+    e_arr[4] = new Enemy(1, 7, 50, 10);
+
+    Robot* enemies[MAX_ENEMIES];
+
+    for (int i = 0; i < MAX_ENEMIES; i++) {
+        enemies[i] = e_arr[i];
+    }
+
+    Building buildings[MAX_BUILDINGS] = { Building(3, 3, 20) , Building(6, 3, 20) };
+
+    HealingPoint heals[MAX_HEALS] = { HealingPoint(2, 6, 15) , HealingPoint(5, 5, 15) };
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
