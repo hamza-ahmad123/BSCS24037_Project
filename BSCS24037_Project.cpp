@@ -30,4 +30,35 @@ int main() {
     Building buildings[MAX_BUILDINGS] = { Building(3, 3, 20) , Building(6, 3, 20) };
 
     HealingPoint heals[MAX_HEALS] = { HealingPoint(2, 6, 15) , HealingPoint(5, 5, 15) };
+
+    Grid grid;
+
+    char command;
+
+    while (player.isAlive()) {
+        grid.printGrid(player, e_arr, MAX_ENEMIES, buildings, MAX_BUILDINGS, heals, MAX_HEALS);
+
+        cout << endl;
+
+        cout << "Enter move (w/a/s/d): ";
+        cin >> command;
+
+        player.move(command, 10, enemies, MAX_ENEMIES, buildings, MAX_BUILDINGS, heals, MAX_HEALS);
+
+
+        for (int i = 0; i < MAX_HEALS; i++) {
+            if (player.x_pos() == heals[i].x_pos() && player.y_pos() == heals[i].y_pos()) {
+                player.heal(heals[i].getHeal());
+                cout << "Player gained health!\n";
+            }
+        }
+
+
+        for (int i = 0; i < MAX_BUILDINGS; i++) {
+            if (player.x_pos() == buildings[i].x_pos() && player.y_pos() == buildings[i].y_pos()) {
+                player.addShield(buildings[i].getShield());
+                cout << "Player gained shield!\n";
+            }
+        }
+    }
 }
