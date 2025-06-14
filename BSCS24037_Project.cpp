@@ -36,7 +36,10 @@ int main() {
     char command;
 
     while (player.isAlive()) {
+
         grid.printGrid(player, e_arr, MAX_ENEMIES, buildings, MAX_BUILDINGS, heals, MAX_HEALS);
+
+        player.display();
 
         cout << endl;
 
