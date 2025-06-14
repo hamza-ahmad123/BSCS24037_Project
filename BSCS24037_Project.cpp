@@ -84,6 +84,21 @@ int main() {
         player.attack(enemies, MAX_ENEMIES);
 
         player.regenerate();
+
+        bool gameOver = true;
+
+        for (int i = 0; i < MAX_ENEMIES; i++) {
+
+            if (enemies[i]->isAlive()) {
+                gameOver = false;
+                break;
+            }
+        }
+
+        if (gameOver) {
+            cout << "You Win!\n";
+            break;
+        }
     }
 
     cout << "You lost!\n";
@@ -92,4 +107,5 @@ int main() {
         delete e_arr[i];
     }
 
+    return 0;
 }
