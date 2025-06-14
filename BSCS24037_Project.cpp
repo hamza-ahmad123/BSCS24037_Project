@@ -43,8 +43,12 @@ int main() {
 
         cout << endl;
 
-        cout << "Enter move (w/a/s/d): ";
+        cout << "Enter move (w/a/s/d) or attack(m): ";
         cin >> command;
+
+        if (command == 'm') {
+            player.attack(enemies, MAX_ENEMIES);
+        }
 
         player.move(command, 10, enemies, MAX_ENEMIES, buildings, MAX_BUILDINGS, heals, MAX_HEALS);
 
@@ -80,8 +84,6 @@ int main() {
                 }
             }
         }
-
-        player.attack(enemies, MAX_ENEMIES);
 
         player.regenerate();
 
