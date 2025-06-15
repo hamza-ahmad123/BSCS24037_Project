@@ -57,6 +57,7 @@ int main() {
             if (player.x_pos() == heals[i].x_pos() && player.y_pos() == heals[i].y_pos()) {
                 player.heal(heals[i].getHeal());
                 cout << "Player gained health!\n";
+                heals[i] = HealingPoint(-1, -1, 0);
             }
         }
 
