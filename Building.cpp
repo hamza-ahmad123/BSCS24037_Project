@@ -27,5 +27,5 @@ int Building::getShield() {
 }
 
 void Building::display() {
-    cout << "Entered Building! Received " << s_points << " shield points." << endl;
+    cout << "Received " << s_points << " shield points." << endl;
 }
