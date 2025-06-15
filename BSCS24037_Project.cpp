@@ -99,7 +99,12 @@ int main() {
 
         if (gameOver) {
             cout << "You Win!\n";
-            break;
+
+            for (int i = 0; i < MAX_ENEMIES; i++) {
+                delete e_arr[i];
+            }
+
+            return 0;
         }
     }
 
