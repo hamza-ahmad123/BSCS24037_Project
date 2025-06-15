@@ -29,6 +29,8 @@ public:
     void display() override;
 
     int getShield();
+
+    bool isAlive() override;
 };
 
 #endif
