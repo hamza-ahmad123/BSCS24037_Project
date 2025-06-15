@@ -129,3 +129,10 @@ int Player::getShield() {
 
     return this->shield;
 }
+
+bool Player::isAlive() {
+    if (health <= 1) {
+        return false;
+    }
+    return true;
+}
