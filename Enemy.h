@@ -14,7 +14,7 @@ public:
 
     Enemy(int a, int b, int h, int d);
 
-    void moveToward(int target_x, int target_y, Building* buildings, int b_count, HealingPoint* hps, int h_count);
+    void moveToward(int target_x, int target_y, Building* buildings, int b_count, HealingPoint* hps, int h_count, Player& player, Enemy** enemies, int e_count);
 
     bool inRange(int target_x, int target_y);
 
