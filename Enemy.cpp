@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "Building.h"
 #include "HealingPoint.h"
+#include "Player.h"
 using namespace std;
 
 Enemy::Enemy() {
@@ -18,7 +19,7 @@ Enemy::Enemy(int a, int b, int h, int d) {
     damage = d;
 }
 
-void Enemy::moveToward(int target_x, int target_y, Building* buildings, int b_count, HealingPoint* hps, int h_count) {
+void Enemy::moveToward(int target_x, int target_y, Building* buildings, int b_count, HealingPoint* hps, int h_count, Player& player, Enemy** enemies, int e_count) {
     int _x = x;
     int _y = y;
 
