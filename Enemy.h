@@ -4,6 +4,7 @@
 #include "Robot.h"
 #include "Building.h"
 #include "HealingPoint.h"
+#include "Player.h"
 
 class Enemy : public Robot {
 private:
