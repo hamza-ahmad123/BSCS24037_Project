@@ -66,7 +66,8 @@ int main() {
 
             if (player.x_pos() == buildings[i].x_pos() && player.y_pos() == buildings[i].y_pos()) {
                 player.addShield(buildings[i].getShield());
-                cout << "Player gained shield!\n";
+                //cout << "Player gained shield!\n";
+                buildings[i].display();
             }
         }
 
