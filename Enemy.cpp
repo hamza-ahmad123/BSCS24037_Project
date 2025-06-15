@@ -29,7 +29,7 @@ void Enemy::moveToward(int target_x, int target_y, Building* buildings, int b_co
         _x--;
     }
 
-    if (y < target_y) {
+    else if (y < target_y) {
         _y++;
     }
     else if (y > target_y) {
@@ -48,6 +48,16 @@ void Enemy::moveToward(int target_x, int target_y, Building* buildings, int b_co
         }
     }
 
+    if (player.x_pos() == _x && player.y_pos() == _y) {
+        return;
+    }
+
+    for (int i = 0; i < e_count; i++) {
+        if (enemies[i] != this && enemies[i]->x_pos() == _x && enemies[i]->y_pos() == _y) {
+            return;
+        }
+    }
+
     x = _x;
     y = _y;
 }
@@ -55,12 +65,15 @@ void Enemy::moveToward(int target_x, int target_y, Building* buildings, int b_co
 bool Enemy::inRange(int target_x, int target_y) {
     int dx = x - target_x;
     int dy = y - target_y;
-    return (dx * dx + dy * dy <= 1);
+
+    int value = dx * dx + dy * dy;
+    bool rn = (value <= 1);
+
+    return rn;
 }
 
 int Enemy::getDamage() {
-
-    return damage;
+    return this->damage;
 }
 
 void Enemy::display() {
