@@ -76,7 +76,7 @@ int main() {
 
             if (e->isAlive()) {
 
-                e->moveToward(player.x_pos(), player.y_pos(), buildings, MAX_BUILDINGS, heals, MAX_HEALS);
+                e->moveToward(player.x_pos(), player.y_pos(), buildings, MAX_BUILDINGS, heals, MAX_HEALS, player, e_arr, MAX_ENEMIES);
 
                 if (e->inRange(player.x_pos(), player.y_pos())) {
                     player.takeDamage(e->getDamage());
