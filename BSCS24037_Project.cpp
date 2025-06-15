@@ -86,6 +86,8 @@ int main() {
             }
         }
 
+        player.isAlive();
+
         player.regenerate();
 
         bool gameOver = true;
